@@ -1,103 +1,393 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Md Sohail Ali | Game Developer Portfolio</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(145deg, #0f0f0f, #1a1a1a);
-      color: #fff;
-      perspective: 1000px;
-      overflow-x: hidden;
-    }
-    header {
-      background: rgba(0,0,0,0.8);
-      padding: 3rem;
-      text-align: center;
-      transform: rotateX(15deg);
-    }
-    header h1 {
-      font-size: 3rem;
-      color: #00ffd5;
-    }
-    section {
-      padding: 3rem;
-      margin: 2rem auto;
-      max-width: 900px;
-      background: #222;
-      border-radius: 15px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-      transform: rotateY(-2deg);
-    }
-    h2 {
-      color: #00eaff;
-      margin-bottom: 1rem;
-    }
-    .project {
-      margin-bottom: 2.5rem;
-      padding: 1rem;
-      background: #333;
-      border-left: 5px solid #00ffd5;
-      transition: transform 0.3s ease;
-    }
-    .project:hover {
-      transform: scale(1.02);
-    }
-    a {
-      color: #00ffd5;
-      text-decoration: none;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background: #111;
-      color: #aaa;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Md Sohail Ali | Game Developer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0f172a;
+            color: #e2e8f0;
+            scroll-behavior: smooth;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .skill-bar {
+            height: 8px;
+            border-radius: 4px;
+            background: #334155;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            border-radius: 4px;
+            background: linear-gradient(90deg, #7c3aed 0%, #a855f7 100%);
+        }
+        
+        .project-card {
+            perspective: 1000px;
+        }
+        
+        .project-inner {
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        
+        .project-card:hover .project-inner {
+            transform: rotateY(10deg);
+        }
+        
+        .floating {
+            animation: floating 6s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .blob {
+            filter: blur(60px);
+            opacity: 0.3;
+            position: absolute;
+            z-index: -1;
+        }
+        
+        .blob-purple {
+            background: #a855f7;
+            width: 300px;
+            height: 300px;
+            top: -100px;
+            left: -100px;
+        }
+        
+        .blob-blue {
+            background: #3b82f6;
+            width: 400px;
+            height: 400px;
+            bottom: -150px;
+            right: -100px;
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 4px;
+            bottom: -5px;
+            left: 0;
+            background: linear-gradient(90deg, #7c3aed 0%, #a855f7 100%);
+            border-radius: 2px;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background: #a855f7;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .active-nav:after {
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Md Sohail Ali</h1>
-    <p>Game Developer & AI Enthusiast</p>
-  </header>  <section>
-    <h2>About Me</h2>
-    <p>I’m a passionate game developer focused on immersive 3D worlds and AI-powered systems. I’ve created original and fan-based games, led online communities, and continuously push boundaries with tools like Unity, Blender, and Lua scripting. Let’s connect and build the future of interactive entertainment!</p>
-  </section>  <section>
-    <h2>Game Projects</h2>
-    <div class="project">
-      <h3><a href="#">Tokyo Ghoul – Fan Game Experience</a></h3>
-      <p>A PvP multiplayer game inspired by Tokyo Ghoul. Featuring kagune powers, factions, and custom maps built in Roblox Studio.</p>
-    </div>
-    <div class="project">
-      <h3><a href="#">Hunter Revengers – Fantasy Brawl</a></h3>
-      <p>A mix of Hunter x Hunter and Tokyo Revengers gameplay mechanics. Role-based combat, leveling system, and arena modes.</p>
-    </div>
-    <div class="project">
-      <h3><a href="#">Tokyo Hell – Dark Urban Horror</a></h3>
-      <p>Original survival horror game featuring AI-controlled enemies, city exploration, and psychological narrative elements.</p>
-    </div>
-  </section>  <section>
-    <h2>Professional Projects</h2>
-    <div class="project">
-      <h3><a href="#">AI-Enhanced NPC System</a></h3>
-      <p>Adaptive AI behavior for NPCs using Unity ML-Agents. Emotions, combat logic, and interaction trees.</p>
-    </div>
-    <div class="project">
-      <h3><a href="#">Asset Pipeline Optimizer</a></h3>
-      <p>Custom automation for Blender to Unity asset conversion. Reduced import time and streamlined mesh handling.</p>
-    </div>
-    <div class="project">
-      <h3><a href="#">Discord Bot for Game Community</a></h3>
-      <p>Built a full-featured bot for moderation, leveling, and game stat integration in Discord servers.</p>
-    </div>
-  </section>  <section>
-    <h2>Contact & Links</h2>
-    <p>📧 <a href="mailto:your@email.com">your@email.com</a></p>
-    <p>🔗 <a href="https://linkedin.com/in/mdsohailali">LinkedIn</a> | <a href="#">GitHub</a> | <a href="#">Discord Server</a></p>
-  </section>  <footer>
-    <p>© 2025 Md Sohail Ali | Portfolio Website</p>
-  </footer>
-</body>
-</html>
+    <!-- Blob Background Elements -->
+    <div class="blob blob-purple"></div>
+    <div class="blob blob-blue"></div>
+    
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-slate-900/80 backdrop-blur-md z-50 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="text-xl font-bold text-white">Md Sohail Ali</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="nav-link active-nav text-white px-3 py-2 text-sm font-medium">Home</a>
+                        <a href="#about" class="nav-link text-gray-300 hover:text-white px-3 py-2 text-sm font-medium">About</a>
+                        <a href="#skills" class="nav-link text-gray-300 hover:text-white px-3 py-2 text-sm font-medium">Skills</a>
+                        <a href="#projects" class="nav-link text-gray-300 hover:text-white px-3 py-2 text-sm font-medium">Projects</a>
+                        <a href="#contact" class="nav-link text-gray-300 hover:text-white px-3 py-2 text-sm font-medium">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-300 hover:text-white focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-slate-900/95">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block px-3 py-2 text-base font-medium text-white">Home</a>
+                <a href="#about" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white">About</a>
+                <a href="#skills" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white">Skills</a>
+                <a href="#projects" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white">Projects</a>
+                <a href="#contact" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white">Contact</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section id="home" class="hero-gradient min-h-screen flex items-center pt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-4xl md:text-6xl font-bold text-white mb-4">Hi, I'm <span class="text-purple-400">Sohail Ali</span></h1>
+                    <h2 class="text-2xl md:text-3xl font-semibold text-gray-300 mb-6">Game Developer & AI Enthusiast</h2>
+                    <p class="text-lg text-gray-300 mb-8 max-w-lg">
+                        Creating immersive gaming experiences and exploring the frontiers of AI technology. 
+                        Passionate about building lasting digital legacies through innovative projects.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#projects" class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg font-medium transition duration-300">
+                            View My Work
+                        </a>
+                        <a href="#contact" class="border border-purple-400 text-purple-400 hover:bg-purple-900/30 px-6 py-3 rounded-lg font-medium transition duration-300">
+                            Contact Me
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center relative">
+                    <div class="w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center floating">
+                        <div class="w-60 h-60 md:w-72 md:h-72 rounded-full bg-slate-800 overflow-hidden border-4 border-purple-300/20">
+                            <img src="https://images.unsplash.com/photo-1608889825101-1d849f725b8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" 
+                                 alt="Profile" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-slate-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="section-title text-3xl font-bold text-white mb-12">About <span class="text-purple-400">Me</span></h2>
+            
+            <div class="flex flex-col md:flex-row gap-12">
+                <div class="md:w-1/2">
+                    <div class="bg-slate-800/70 rounded-xl p-8 shadow-lg card-hover">
+                        <h3 class="text-2xl font-semibold text-white mb-4">Personal Details</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-user text-purple-400 mt-1 mr-3"></i>
+                                <span><strong class="text-gray-300">Full Name:</strong> Md Sohail Ali</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-birthday-cake text-purple-400 mt-1 mr-3"></i>
+                                <span><strong class="text-gray-300">Date of Birth:</strong> January 9, 2008</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-calendar-alt text-purple-400 mt-1 mr-3"></i>
+                                <span><strong class="text-gray-300">Age:</strong> 17 (as of 2025)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-map-marker-alt text-purple-400 mt-1 mr-3"></i>
+                                <span><strong class="text-gray-300">Location:</strong> Hyderabad, India</span>
+                            </li>
+                        </ul>
+                        
+                        <h3 class="text-2xl font-semibold text-white mt-8 mb-4">Interests</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-purple-900/50 text-purple-300 px-3 py-1 rounded-full text-sm">Game Development</span>
+                            <span class="bg-blue-900/50 text-blue-300 px-3 py-1 rounded-full text-sm">Artificial Intelligence</span>
+                            <span class="bg-emerald-900/50 text-emerald-300 px-3 py-1 rounded-full text-sm">Trading</span>
+                            <span class="bg-amber-900/50 text-amber-300 px-3 py-1 rounded-full text-sm">Business</span>
+                            <span class="bg-cyan-900/50 text-cyan-300 px-3 py-1 rounded-full text-sm">Technology</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <div class="bg-slate-800/70 rounded-xl p-8 shadow-lg card-hover h-full">
+                        <h3 class="text-2xl font-semibold text-white mb-4">Who I Am</h3>
+                        <p class="text-gray-300 mb-6">
+                            I'm a passionate game developer with a vision to create immersive gaming experiences that leave a lasting impact. 
+                            My journey in game development began with a fascination for virtual worlds and has evolved into a pursuit of 
+                            building digital legacies through innovative projects.
+                        </p>
+                        
+                        <h3 class="text-2xl font-semibold text-white mt-8 mb-4">Strengths</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-slate-700/50 p-4 rounded-lg">
+                                <i class="fas fa-lightbulb text-purple-400 mb-2"></i>
+                                <h4 class="font-medium text-white">Visionary Thinker</h4>
+                                <p class="text-sm text-gray-400">Always looking beyond the present to create future-forward experiences</p>
+                            </div>
+                            <div class="bg-slate-700/50 p-4 rounded-lg">
+                                <i class="fas fa-users text-blue-400 mb-2"></i>
+                                <h4 class="font-medium text-white">Collaborative Worker</h4>
+                                <p class="text-sm text-gray-400">Thrives in team environments to bring ideas to life</p>
+                            </div>
+                            <div class="bg-slate-700/50 p-4 rounded-lg">
+                                <i class="fas fa-gamepad text-amber-400 mb-2"></i>
+                                <h4 class="font-medium text-white">Creative Developer</h4>
+                                <p class="text-sm text-gray-400">Combines technical skills with artistic vision</p>
+                            </div>
+                            <div class="bg-slate-700/50 p-4 rounded-lg">
+                                <i class="fas fa-monument text-emerald-400 mb-2"></i>
+                                <h4 class="font-medium text-white">Legacy Builder</h4>
+                                <p class="text-sm text-gray-400">Focused on creating lasting value and impact</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 bg-slate-800/70 rounded-xl p-8 shadow-lg card-hover">
+                <h3 class="text-2xl font-semibold text-white mb-4">Career Goals</h3>
+                <p class="text-gray-300">
+                    My ambition is to build a successful legacy through game development and AI projects. 
+                    I aspire to work in peaceful, recognition-driven environments that offer long-term rewards 
+                    and opportunities for creative expression. I believe in creating value that lasts, whether 
+                    through memorable gaming experiences or innovative AI applications that enhance how we 
+                    interact with technology.
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-slate-900/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="section-title text-3xl font-bold text-white mb-12">My <span class="text-purple-400">Skills</span></h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-slate-800/70 rounded-xl p-8 shadow-lg card-hover">
+                    <h3 class="text-2xl font-semibold text-white mb-6">Technical Skills</h3>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-300 font-medium">Game Design (Roblox Studio)</span>
+                                <span class="text-purple-400">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-300 font-medium">3D Environment Building</span>
+                                <span class="text-purple-400">75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-300 font-medium">Programming (Basic to Intermediate)</span>
+                                <span class="text-purple-400">70%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 70%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-300 font-medium">AI Concepts Implementation</span>
+                                <span class="text-purple-400">65%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 65%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-slate-800/70 rounded-xl p-8 shadow-lg card-hover">
+                    <h3 class="text-2xl font-semibold text-white mb-6">Professional Skills</h3>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-300 font-medium">Team & Community Management</span>
+                                <span class="text-blue-400">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%; background: linear-gradient(90deg, #3b82f6 0%, #60a5fa 100%);"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-300 font-medium">Portfolio & Branding</span>
+                                <span class="text-blue-400">75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 75%; background: linear-gradient(90deg, #3b82f6 0%, #60a5fa 100%);"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-300 font-medium">HTML & 3D Web Elements</span>
+                                <span class="text-blue-400">70%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 70%; background: linear-gradient(90deg, #3b82f6 0%, #60a5fa 100%);"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-300 font-medium">Social Media Setup</span>
+                                <span class="text-blue-400">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%; background: linear-gradient(90deg, #3b82f6 0%, #60a5fa 100%);"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-8 bg-slate-800/70 rounded-xl p-8 shadow-lg card-hover">
+                <h3 class="text-2xl font-semibold text-white mb-6">Community & Social Skills
